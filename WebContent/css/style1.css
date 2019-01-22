@@ -1,0 +1,86 @@
+@CHARSET "ISO-8859-1";
+:root {
+  --primary: #666;
+  --hintergrund: #ccc;
+  --akzent: #c32e04;
+  --linkfarbe: #09c;
+}
+
+
+.container {
+  position: relative;
+}
+
+.menue{
+     position: relative;
+     top: 10px;
+}
+
+.Regler {
+     position: relative;
+     left:10px;
+     float: left;
+     top:30px;
+     padding: 20px; 
+     background: #FF6100;
+}
+
+.ReglerEinzel {
+     position: relative;
+     float: left;
+     padding:20px;
+     margin-left:20px;
+     background: #FF6100;
+}
+
+.ReglerGroup1 {
+	 position:absolute;
+     top:100px;
+     left:20px;
+     padding: 1px;
+     background: green;
+}
+
+.ReglerGroup2 {
+	 position:absolute;
+     top:400px;
+     left:20px;
+     padding: 1px;
+     background: green;
+}
+
+.labelInput{
+	width:30px;
+	border:0; 
+	color:black; 
+	font-weight:bold;
+}
+
+#labelpar{
+	float:left;
+	margin-left:20px;
+}
+
+.labelInput2{
+	width:30px;
+	border:0; 
+	color:black; 
+	font-weight:bold;
+}
+
+.buttonGroub1{
+	position:absolute;
+    top:400px;
+    left:200px;
+    padding: 1px;
+    background: orange;
+}
+
+.buttonGroub2{
+	position:absolute;
+    top:500px;
+    left:200px;
+    padding: 1px;
+    background: blue;
+}
+
