@@ -1,7 +1,7 @@
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="java.util.List"%>
-<%@ page import="database.information" %>
+<%@ page import="c4l.server.database.information" %>
  <%   
    information info = new information();
    String SceneID = request.getParameter("scene");
