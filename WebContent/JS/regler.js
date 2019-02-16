@@ -10,8 +10,8 @@ $( function() {
       slide: function( event, ui ) {
     	  $.ajax({
 	            type : "POST",
-	            url : "helpJSP/setAddresValue.jsp",
-	            data : "adress=1&value=" + ui.value,
+	            url : "helpJSP/setFaderValue.jsp",
+	            data : "fader=0&value=" + ui.value,
 	           
 	        });		  
          $( "#amountR" ).val( ui.value );
@@ -27,8 +27,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=2&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=1&value=" + ui.value,
   	           
   	        });		  
            $( "#amountG" ).val( ui.value );
@@ -44,8 +44,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=3&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=2&value=" + ui.value,
   	           
   	        });		  
            $( "#amountB" ).val( ui.value );
@@ -61,8 +61,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=4&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=3&value=" + ui.value,
   	           
   	        });		  
            $( "#amount4" ).val( ui.value );
@@ -78,8 +78,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=5&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=4&value=" + ui.value,
   	           
   	        });		  
            $( "#amount5" ).val( ui.value );
@@ -95,8 +95,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=6&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=5&value=" + ui.value,
   	           
   	        });		  
            $( "#amount6" ).val( ui.value );
@@ -113,8 +113,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=7&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=6&value=" + ui.value,
   	           
   	        });		  
            $( "#amount7" ).val( ui.value );
@@ -131,8 +131,8 @@ $( function() {
         slide: function( event, ui ) {
       	  $.ajax({
   	            type : "POST",
-  	            url : "helpJSP/setAddresValue.jsp",
-  	            data : "adress=8&value=" + ui.value,
+  	            url : "helpJSP/setFaderValue.jsp",
+  	            data : "fader=7&value=" + ui.value,
   	           
   	        });		  
            $( "#amount8" ).val( ui.value );
@@ -144,7 +144,7 @@ $( function() {
     
     
     
-    //definitzon wen regler speed und size
+    //definitzon für regler speed und size
     
      $( "#speed" ).slider({
         orientation: "vertical",
