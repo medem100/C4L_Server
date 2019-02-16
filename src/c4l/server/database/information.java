@@ -23,14 +23,14 @@ public final class information {
 	 * 
 	 */
 
-	private static byte effectSice = 0;
-	private static byte effectSpeed = 0;
+	private static int effectSice = 0;
+	private static int effectSpeed = 0;
 	private static ArrayList<Integer> scenenID = new ArrayList<>(); // damit mehrer scenen Paralel laufen könne
-	private static Integer caseID;
-	private static Integer effectID; // Initzalisirt das kein button gedrückt ist
+	private static int caseID;
+	private static int effectID; // Initzalisirt das kein button gedrückt ist
 	// public static String addresValue[] = new String[adrresen+1]; // 512 adresse
-	private static byte faderValue[] = new byte[Constants.DEVICE_CHANNELS];
-	private static Boolean geraeteUse[] = new Boolean[Constants.DYNAMIC_DEVICES];
+	private static int faderValue[] = new int[Constants.DEVICE_CHANNELS-1];
+	private static Boolean geraeteUse[] = new Boolean[Constants.DYNAMIC_DEVICES-1];
 
 	// public String
 
@@ -38,29 +38,29 @@ public final class information {
 
 	}
 
-	public static void setEffectID(Integer id) {
+	public static void setEffectID(int id) {
 		effectID = id;
 	}
 
 	// public static string test
 
-	public static void addScenenID(Integer scenenID) {
+	public static void addScenenID(int scenenID) {
 		information.scenenID.add(scenenID);
 	}
 
-	public static void dropScenenID(Integer scenenID) {
+	public static void dropScenenID(int scenenID) {
 		information.scenenID.remove(scenenID);
 	}
 
-	public static void setSice(byte sice) {
+	public static void setSice(int sice) {
 		information.effectSice = sice;
 	}
 
-	public static void setSpeed(byte speed) {
+	public static void setSpeed(int speed) {
 		information.effectSpeed = speed;
 	}
 
-	public static void setGeraet(Integer Geraet) {
+	public static void setGeraet(int Geraet) {
 		try {
 			if (geraeteUse[Geraet]) {
 				geraeteUse[Geraet] = false;
@@ -72,7 +72,7 @@ public final class information {
 		}
 	}
 
-	public static void setFader(byte fader, byte value) {
+	public static void setFader(int fader, int value) {
 		information.faderValue[fader] = value;
 
 	}
@@ -112,8 +112,10 @@ public final class information {
 
 	public static JSONArray getFaderValues() {
 		JSONArray array = new JSONArray();
-		for (byte i : faderValue)
-			array.put(i, faderValue[i]);
+		for (int i = 0; i <= Constants.DEVICE_CHANNELS -1 ; i++) {
+			int Test = information.faderValue[i];
+		    array.put(i,Test);
+		}
 
 		return array;
 
