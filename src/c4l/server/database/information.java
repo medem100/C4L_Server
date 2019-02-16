@@ -29,8 +29,8 @@ public final class information {
 	private static int caseID;
 	private static int effectID; // Initzalisirt das kein button gedrückt ist
 	// public static String addresValue[] = new String[adrresen+1]; // 512 adresse
-	private static int faderValue[] = new int[Constants.DEVICE_CHANNELS-1];
-	private static Boolean geraeteUse[] = new Boolean[Constants.DYNAMIC_DEVICES-1];
+	private static JSONArray faderValues = new JSONArray(Constants.DEVICE_CHANNELS);
+	private static JSONArray deviceSelected = new JSONArray(Constants.DYNAMIC_DEVICES);
 
 	// public String
 
@@ -62,37 +62,22 @@ public final class information {
 
 	public static void setGeraet(int Geraet) {
 		try {
-			if (geraeteUse[Geraet]) {
-				geraeteUse[Geraet] = false;
+			if ((boolean) deviceSelected.get(Geraet)) {
+				deviceSelected.put(Geraet,false);
 			} else {
-				geraeteUse[Geraet] = true;
+				deviceSelected.put(Geraet,true);
 			}
 		} catch (Exception e) {
-			geraeteUse[Geraet] = true;
+			deviceSelected.put(Geraet,true);
 		}
 	}
 
 	public static void setFader(int fader, int value) {
-		information.faderValue[fader] = value;
+		information.faderValues.put(fader,value);
 
 	}
 
-	/*
-	 * // weil es mit einer stelle zuviel übergeben wird public static void
-	 * setAdrresValue(String adress, String value){ addresValue[
-	 * Integer.parseInt(adress)-1] = value; }
-	 */
-
-	public static String getGeraeteUse() {
-		String gU = "";
-		for (int i = 0; i <= geraeteUse.length; i++) {
-			if (geraeteUse[i]) {
-				gU = gU + i + ";";
-			}
-		}
-		return gU;
-	}
-
+	
 	public static String getScenenIDs() {
 		String SIds = "";
 		Iterator<Integer> iterator = scenenID.iterator();
@@ -110,17 +95,8 @@ public final class information {
 		return information.scenenID;
 	}
 
-	public static JSONArray getFaderValues() {
-		JSONArray array = new JSONArray();
-		for (int i = 0; i <= Constants.DEVICE_CHANNELS -1 ; i++) {
-			int Test = information.faderValue[i];
-		    array.put(i,Test);
-		}
 
-		return array;
-
-	}
-
+	// geräte fehlen....
 	public static String getinfoJSON() {
 		// addresValue = clearAdrresValues(addresValue);
 		JSONObject answer = new JSONObject();
@@ -128,7 +104,11 @@ public final class information {
 		answer.put("caseID", caseID);
 		answer.put("effectSize", effectSice);
 		answer.put("effectSpeed", effectSpeed); // könnte noch ne Logi rein das nur geändert values rein kommen
-		answer.put("fader", getFaderValues());
+		answer.put("fader", faderValues);
+		answer.put("devices", deviceSelected);
+		answer.put("devices", deviceSelected);
+		answer.put("effect", effectID);
+		
 		return answer.toString();
 	}
 
