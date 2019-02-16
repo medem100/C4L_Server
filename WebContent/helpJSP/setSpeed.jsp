@@ -3,10 +3,9 @@
 <%@ page import="java.util.List"%>
 <%@ page import="c4l.server.database.information" %>
  <%   
-   information info = new information();
    String speed = request.getParameter("speed");
    if(!(speed.equals(null) && speed.equals(""))){
-	   info.setSpeed(speed);
+	  information.setSpeed(Integer.parseInt(speed));
 	   out.print("ok");
    }else{
 	   out.print("Error: set speed Value");

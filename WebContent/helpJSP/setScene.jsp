@@ -3,10 +3,9 @@
 <%@ page import="java.util.List"%>
 <%@ page import="c4l.server.database.information" %>
  <%   
-   information info = new information();
-   String SceneID = request.getParameter("scene");
-   if(!(SceneID.equals(null) && SceneID.equals(""))){
-	   info.setScenenID(SceneID);
+   String scenenID = request.getParameter("scene");
+   if(!(scenenID.equals(null) && scenenID.equals(""))){
+	   information.addScenenID(Integer.parseInt(scenenID));
 	   out.print("ok");
    }else{
 	   out.print("Error: Set Scene");

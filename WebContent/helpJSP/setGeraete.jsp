@@ -6,7 +6,7 @@
    information info = new information();
    String geraet = request.getParameter("geraet");
    if(!(geraet.equals(null) && geraet.equals(""))){
-	   info.setScenenID(geraet);
+	   information.setGeraet(Integer.parseInt(geraet));
 	   out.print("ok");
    }else{
 	   out.print("Error: Set gerate");
