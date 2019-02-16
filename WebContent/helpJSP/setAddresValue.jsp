@@ -3,11 +3,10 @@
 <%@ page import="java.util.List"%>
 <%@ page import="c4l.server.database.information" %>
  <%   
-   information info = new information();
-   String adress = request.getParameter("adress");
+   String fader = request.getParameter("fader");
    String value = request.getParameter("value");
-   if(!(adress.equals(null) && adress.equals(""))){
-	   info.setAdrresValue(adress,value);
+   if(!(fader.equals(null) && value.equals(""))){
+	   information.setFader(Integer.parseInt(fader),Integer.parseInt(value));
 	   out.print("ok");
    }else{
 	   out.print("Error: set Adrress Value");
