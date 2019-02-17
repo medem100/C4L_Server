@@ -33,14 +33,12 @@ public final class information {
 	private static JSONArray faderValues = new JSONArray( new int[Constants.DEVICE_CHANNELS]);
 	private static JSONArray deviceSelected = new JSONArray(new Boolean[Constants.DYNAMIC_DEVICES]);
 
-	// public String
-	
+
+	//getter setter
 
 	public static void setEffectID(int id) {
 		effectID = id;
 	}
-
-	// public static string test
 
 	public static void addScenenID(int scenenID) {
 		information.scenenID.put(scenenID);
