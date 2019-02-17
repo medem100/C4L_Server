@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.json.*;
+
 import c4l.server.database.Constants;
 
 //import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
@@ -29,14 +30,11 @@ public final class information {
 	private static int caseID;
 	private static int effectID; // Initzalisirt das kein button gedrückt ist
 	// public static String addresValue[] = new String[adrresen+1]; // 512 adresse
-	private static JSONArray faderValues = new JSONArray(Constants.DEVICE_CHANNELS);
-	private static JSONArray deviceSelected = new JSONArray(Constants.DYNAMIC_DEVICES);
+	private static JSONArray faderValues = new JSONArray( new int[Constants.DEVICE_CHANNELS]);
+	private static JSONArray deviceSelected = new JSONArray(new int[Constants.DYNAMIC_DEVICES]);
 
 	// public String
-
-	public information() {
-
-	}
+	
 
 	public static void setEffectID(int id) {
 		effectID = id;
