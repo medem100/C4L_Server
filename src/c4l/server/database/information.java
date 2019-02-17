@@ -26,12 +26,12 @@ public final class information {
 
 	private static int effectSice = 0;
 	private static int effectSpeed = 0;
-	private static ArrayList<Integer> scenenID = new ArrayList<>(); // damit mehrer scenen Paralel laufen könne
+	private static JSONArray scenenID = new JSONArray(); // damit mehrer scenen Paralel laufen könne
 	private static int caseID;
 	private static int effectID; // Initzalisirt das kein button gedrückt ist
 	// public static String addresValue[] = new String[adrresen+1]; // 512 adresse
 	private static JSONArray faderValues = new JSONArray( new int[Constants.DEVICE_CHANNELS]);
-	private static JSONArray deviceSelected = new JSONArray(new int[Constants.DYNAMIC_DEVICES]);
+	private static JSONArray deviceSelected = new JSONArray(new Boolean[Constants.DYNAMIC_DEVICES]);
 
 	// public String
 	
@@ -43,7 +43,7 @@ public final class information {
 	// public static string test
 
 	public static void addScenenID(int scenenID) {
-		information.scenenID.add(scenenID);
+		information.scenenID.put(scenenID);
 	}
 
 	public static void dropScenenID(int scenenID) {
@@ -72,25 +72,13 @@ public final class information {
 
 	public static void setFader(int fader, int value) {
 		information.faderValues.put(fader,value);
+		
 
 	}
 
-	
-	public static String getScenenIDs() {
-		String SIds = "";
-		Iterator<Integer> iterator = scenenID.iterator();
-		while (iterator.hasNext()) {
-			SIds = SIds + iterator.next() + ";";
-		}
-		return SIds;
-	}
 
 	public static Integer getEffectID() {
 		return information.effectID;
-	}
-
-	public static ArrayList<Integer> getScenenID() {
-		return information.scenenID;
 	}
 
 
@@ -98,7 +86,7 @@ public final class information {
 	public static String getinfoJSON() {
 		// addresValue = clearAdrresValues(addresValue);
 		JSONObject answer = new JSONObject();
-		answer.put("scenenID", getScenenIDs());
+		answer.put("scenenID", scenenID);
 		answer.put("caseID", caseID);
 		answer.put("effectSize", effectSice);
 		answer.put("effectSpeed", effectSpeed); // könnte noch ne Logi rein das nur geändert values rein kommen
