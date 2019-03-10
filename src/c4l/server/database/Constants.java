@@ -5,14 +5,16 @@ package c4l.server.database;
  */
 
 public class Constants {
-	//Ports and adrres
+	//Ports and adrres schould be all in the Propertis
 	/** Port, where Arduino of Hardware-Controller is connected */
 	public final static String ARDUINO_PORT = "COM6";
 	
-	/** Addres from the server **/
+	/** IP from the server **/
 	public final static String SERVER_IP = "127.0.0.1";
-    public final static String SERVER_Port = "127.0.0.1";
-    public final static String SERVER_ADDRESS = SERVER_IP+"::"+SERVER_Port;
+    /** Port from the server **/
+	public final static String SERVER_Port = "8080";
+	/** complett adrres from the server**/
+	public final static String SERVER_ADDRESS = SERVER_IP+"::"+SERVER_Port;
     					
 			
 	//General
