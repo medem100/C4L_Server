@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>com.vogella.jersey.first</display-name>
+	<servlet>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<!-- Register resources and providers under  package. -->
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>c4l.server.rest,io.swagger.jaxrs.listing</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- configuration of swagger -->
+
+
+	<servlet>
+		<servlet-name>jersey</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.classnames</param-name>
+			<param-value>
+                io.swagger.jaxrs.listing.ApiListingResource,
+                io.swagger.jaxrs.listing.SwaggerSerializers,
+                c4l.server.rest.getValues.java,
+                c4l.server.rest.setValues.java
+             <!-- anfügen der andern JAVA klassen -->
+            </param-value>
+		</init-param>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>jersey</servlet-name>
+		<url-pattern>/api/*</url-pattern> <!-- die swagger infos könen auch über /api/ abgefragt werden -->
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>Jersey2Config</servlet-name>
+		<servlet-class>io.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
+		<init-param>
+			<param-name>api.version</param-name>
+			<param-value>0.0.1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>swagger.api.title</param-name>
+			<param-value>C4L Server API</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>swagger.api.basepath</param-name>
+			<param-value>http://localhost:8080/C4L_server/rest/</param-value> <!-- ist später zu ändern -->
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+</web-app>
