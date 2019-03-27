@@ -1,12 +1,12 @@
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="java.util.List"%>
-<%@ page import="c4l.server.database.information" %>
+<%@ page import="c4l.server.main.*" %>
  <%   
-   information info = new information();
+   Values info = new Values();
    String geraet = request.getParameter("geraet");
    if(!(geraet.equals(null) && geraet.equals(""))){
-	   information.setGeraet(Integer.parseInt(geraet));
+	   Values.setDevice(Integer.parseInt(geraet));
 	   out.print("ok");
    }else{
 	   out.print("Error: Set gerate");
